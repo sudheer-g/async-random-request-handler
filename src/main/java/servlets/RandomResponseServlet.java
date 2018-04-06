@@ -20,7 +20,7 @@ public class RandomResponseServlet extends HttpServlet {
     private int requestHandleCapacity = 150;
     private List<AsyncContext> jobs = Collections.synchronizedList(new ArrayList<>(requestHandleCapacity));
     private Logger logger = LogManager.getLogger();
-    private int numberOfThreads = 1;
+    private int numberOfThreads = 2;
     private Thread[] workers = new Thread[numberOfThreads];
 
     @Override

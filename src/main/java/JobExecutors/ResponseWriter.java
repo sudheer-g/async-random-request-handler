@@ -19,7 +19,7 @@ public class ResponseWriter implements Runnable {
         this.jobs = jobs;
     }
 
-    private void writeToResponse(AsyncContext asyncContext) throws IOException, IllegalStateException {
+    private void writeToResponse(AsyncContext asyncContext) throws IOException {
         int i;
         int dataSize = 10485760;
         try {
@@ -41,13 +41,13 @@ public class ResponseWriter implements Runnable {
                 asyncContext.getRequest().setAttribute("writable", null);
             }
 
-        } catch (BufferOverflowException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             jobs.remove(asyncContext);
         }
     }
 
-    private synchronized boolean isResponseWritable(AsyncContext asyncContext) {
+    private static synchronized boolean isResponseWritable(AsyncContext asyncContext) throws IllegalStateException{
         if(asyncContext != null && asyncContext.getRequest().getAttribute("writable") == null) {
             asyncContext.getRequest().setAttribute("writable",false );
             return true;
@@ -65,19 +65,16 @@ public class ResponseWriter implements Runnable {
                 break;
             }
             try {
-                int index = jobs.size() > 0 ? ThreadLocalRandom.current().nextInt(jobs.size()) : 0;
+                int index = ThreadLocalRandom.current().nextInt(jobs.size());
                 asyncContext = jobs.get(index);
                 if (isResponseWritable(asyncContext)) {
                     writeToResponse(asyncContext);
                 }
             }
-            catch (IndexOutOfBoundsException e) {
+            catch (IndexOutOfBoundsException  | IllegalArgumentException e) {
             }
-            catch (IllegalStateException e) {
+            catch (IOException  | IllegalStateException e) {
                 jobs.remove(asyncContext);
-                e.printStackTrace();
-            }
-            catch (IOException e) {
                 e.printStackTrace();
             }
         }
