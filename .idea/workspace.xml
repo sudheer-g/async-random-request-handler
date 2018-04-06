@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd4b826c-1a05-4e2b-9d3e-df2eb5a5bbbf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/JobExecutors/ResponseWriter.java" afterPath="$PROJECT_DIR$/src/main/java/JobExecutors/ResponseWriter.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servlets/RandomResponseServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/RandomResponseServlet.java" />
-      <change beforePath="$PROJECT_DIR$/target/RandomAsyncResponse.war" afterPath="$PROJECT_DIR$/target/RandomAsyncResponse.war" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,8 +31,8 @@
       <file leaf-file-name="ResponseWriter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/JobExecutors/ResponseWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state relative-caret-position="144">
+              <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#503#504#0" expanded="true" />
@@ -80,8 +76,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Executors/ResponseWriter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/JobExecutors/ResponseWriter.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/RandomResponseServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/JobExecutors/ResponseWriter.java" />
       </list>
     </option>
   </component>
@@ -855,8 +851,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/JobExecutors/ResponseWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#503#504#0" expanded="true" />

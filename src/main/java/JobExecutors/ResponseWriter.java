@@ -6,7 +6,6 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.AsyncContext;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.BufferOverflowException;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -47,9 +46,9 @@ public class ResponseWriter implements Runnable {
         }
     }
 
-    private static synchronized boolean isResponseWritable(AsyncContext asyncContext) throws IllegalStateException{
-        if(asyncContext != null && asyncContext.getRequest().getAttribute("writable") == null) {
-            asyncContext.getRequest().setAttribute("writable",false );
+    private static synchronized boolean isResponseWritable(AsyncContext asyncContext) throws IllegalStateException {
+        if (asyncContext != null && asyncContext.getRequest().getAttribute("writable") == null) {
+            asyncContext.getRequest().setAttribute("writable", false);
             return true;
         }
         return false;
@@ -60,7 +59,7 @@ public class ResponseWriter implements Runnable {
     public void run() {
         AsyncContext asyncContext = null;
         while (true) {
-            if(Thread.interrupted()) {
+            if (Thread.interrupted()) {
                 logger.info("Hit thread exit");
                 break;
             }
@@ -70,12 +69,9 @@ public class ResponseWriter implements Runnable {
                 if (isResponseWritable(asyncContext)) {
                     writeToResponse(asyncContext);
                 }
-            }
-            catch (IndexOutOfBoundsException  | IllegalArgumentException e) {
-            }
-            catch (IOException  | IllegalStateException e) {
+            } catch (IndexOutOfBoundsException | IllegalArgumentException e) {
+            } catch (IOException | IllegalStateException e) {
                 jobs.remove(asyncContext);
-                e.printStackTrace();
             }
         }
     }
